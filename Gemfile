@@ -48,6 +48,8 @@ gem "devise", "~> 4.8", ">= 4.8.1"
 
 gem "money", "~> 6.16"
 
+gem 'sidekiq'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
