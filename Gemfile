@@ -50,6 +50,10 @@ gem "money", "~> 6.16"
 
 gem 'sidekiq'
 
+gem 'nokogiri', '~> 1.13.3'
+
+gem 'httparty', '~> 0.20.0'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
