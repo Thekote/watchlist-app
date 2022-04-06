@@ -1,0 +1,3 @@
+class BadUrlError > StandardError
+  
+end
