@@ -16,7 +16,7 @@ RSpec.describe GetSharePriceService, type: :service do
       context 'with invalid params' do
         it 'return an error', :vcr do
           VCR.use_cassette('invalid_url') do
-            expect { GetSharePriceService.new(invalid_share).share_price }.to raise_error(StandardError)          
+            expect { GetSharePriceService.new(invalid_share).share_price }.to raise_error(BadUrlError)          
           end
         end
       end
