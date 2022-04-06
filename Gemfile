@@ -48,6 +48,12 @@ gem "devise", "~> 4.8", ">= 4.8.1"
 
 gem "money", "~> 6.16"
 
+gem 'sidekiq'
+
+gem 'nokogiri', '~> 1.13.3'
+
+gem 'httparty', '~> 0.20.0'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -73,4 +79,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'vcr'
+  gem 'webmock'
+  gem 'rspec-sidekiq'
 end
