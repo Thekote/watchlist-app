@@ -6,12 +6,10 @@ class GetSharePriceService
   end
 
   def share_price
-    begin
-      parsed_uri = URI.parse("https://statusinvest.com.br/acoes/#{@asset.downcase}")
-      html_body = Nokogiri::HTML(Net::HTTP.get_response(parsed_uri).body)
-      get_price = html_body.css("strong").first.text.gsub(",", ".").to_f*CONVERSION_TO_INT
-    rescue StandardError
-      'Url was not found'
-    end
+    parsed_uri = URI.parse("https://statusinvest.com.br/acoes/#{@asset.downcase}")
+    response = Net::HTTP.get_response(parsed_uri)
+    raise StandardError if response.code == '404'
+    html_body = Nokogiri::HTML(response.body)
+    html_body.css("strong").first.text.gsub(",", ".").to_f*CONVERSION_TO_INT    
   end
 end
