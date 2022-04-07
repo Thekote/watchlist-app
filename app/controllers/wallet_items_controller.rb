@@ -3,8 +3,6 @@ class WalletItemsController < ApplicationController
 
   def create
     asset = Asset.find_by(symbol: params[:symbol].upcase)
-    price = GetSharePriceService.new(asset.symbol).share_price
-    Quote.create!(price: price, current: true, asset_id: asset.id)
     wallet_item = WalletItem.new(wallet: current_user.wallet, asset: asset)
 
     respond_to do |format|
