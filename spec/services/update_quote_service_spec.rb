@@ -14,8 +14,7 @@ RSpec.describe UpdateQuoteService, type: :service do
 
         it 'updates current quotes to false', :vcr do
           new_quote = VCR.use_cassette('petz3') { UpdateQuoteService.new(asset.symbol).update_quote }
-          quote.reload
-          expect(quote.current).to eq(false)
+          expect(quote.reload.current).to eq(false)
         end
 
         it 'sets new quote to current', :vcr do 
